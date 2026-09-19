@@ -8,7 +8,7 @@ export const siteContent = {
     shortName: 'Dr. Maya Reynolds',
     descriptor: 'Licensed Clinical Psychologist',
     location: 'Santa Monica, California',
-    address: '123th Street 49 W, Santa Monica, CA 90401',
+    address: '123th Street 45 W, Santa Monica, CA 90401',
   },
   nav: [
     { label: 'About', href: '#about' },
@@ -98,9 +98,9 @@ export const siteContent = {
         'I integrate cognitive-behavioral therapy, EMDR, mindfulness-based practices, and body-oriented techniques. Sessions are shaped around your needs rather than a fixed formula.',
     },
     {
-      question: 'What can we work on together?',
+      question: 'Do you work with entrepreneurs or high-pressure professionals?',
       answer:
-        'Clients often come in with constant worry, tension, difficulty sleeping, trauma, professional burnout, perfectionism, or a sense of being disconnected from themselves.',
+        'Yes. Many of the people I work with are entrepreneurs, creatives, or professionals who feel disconnected from themselves after years of pushing through stress. Therapy can become a space to slow down, reconnect, and build more sustainable ways of living and working.',
     },
     {
       question: 'Where are sessions available?',
