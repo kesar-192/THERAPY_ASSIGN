@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Space+Mono:wght@400;700&display=swap');
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-on-dark: hsl(var(--accent-on-dark));
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+}
+
+:root {
+  --background: 42 33% 95%;
+  --foreground: 187 24% 19%;
+  --border: 38 19% 83%;
+  --primary: 174 27% 33%;
+  --primary-foreground: 42 33% 95%;
+  --secondary: 36 27% 87%;
+  --secondary-foreground: 187 24% 19%;
+  --muted: 39 19% 90%;
+  --muted-foreground: 187 12% 40%;
+  /* Deeper terracotta so it clears AA contrast against the light
+     background/secondary surfaces it's normally used on. */
+  --accent: 12 55% 46%;
+  --accent-foreground: 187 24% 19%;
+  /* Lighter tint of the same hue, for accent text/icons placed on the
+     dark --primary surface (e.g. the Approach section), where the
+     regular --accent value doesn't clear AA contrast. */
+  --accent-on-dark: 12 35% 90%;
+  --app-font-sans: 'DM Sans', sans-serif;
+  --app-font-serif: 'Playfair Display', serif;
+  --app-font-mono: 'Space Mono', monospace;
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply antialiased;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--app-font-sans);
+    min-width: 320px;
+  }
+  ::selection {
+    background: hsl(var(--accent));
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  .focus-ring {
+    outline: none;
+  }
+
+  .focus-ring:focus-visible {
+    outline: 2px solid hsl(var(--accent));
+    outline-offset: 4px;
+  }
+
+  .font-display {
+    font-family: var(--app-font-serif);
+  }
+  .font-mono-ui {
+    font-family: var(--app-font-mono);
+  }
+  .eyebrow {
+    font-family: var(--app-font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .site-wrap {
+    width: min(100% - 2.5rem, 1180px);
+    margin-inline: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.grain::after {
+  content: '';
+  position: fixed;
+  pointer-events: none;
+  inset: 0;
+  opacity: 0.045;
+  z-index: 40;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+@media (min-width: 768px) {
+  .site-wrap {
+    width: min(100% - 5rem, 1180px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .site-wrap {
+    width: min(100% - 8rem, 1230px);
+  }
+}
